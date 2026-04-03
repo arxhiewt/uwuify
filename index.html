@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>uwuify Bot</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>uwuify Discord Bot</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -16,14 +15,15 @@
         <a href="#features">Features</a>
         <a href="#commands">Commands</a>
         <a href="#docs">Docs</a>
+        <a href="#demo">Demo</a>
+        <a href="#faq">FAQ</a>
     </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-    <h1>Transform Messages Live.</h1>
-    <p>The only Discord bot that rewrites messages instantly using webhooks.</p>
-    
+    <h1>uwuify Bot</h1>
+    <p>The only Discord bot that transforms messages live in style!</p>
     <a href="YOUR_INVITE_LINK" class="btn">Invite Bot</a>
 </section>
 
@@ -31,51 +31,96 @@
 <section id="features">
     <h2>Features</h2>
     <div class="grid">
-        <div class="card">⚡ Live message transformation</div>
-        <div class="card">🔗 Webhook powered</div>
-        <div class="card">🧠 Smart text effects</div>
-        <div class="card">🚀 Fast & lightweight</div>
+        <div class="card">
+            <h3>Live Transformation</h3>
+            <p>Messages are rewritten live using webhooks. Instant results!</p>
+        </div>
+        <div class="card">
+            <h3>Webhook Integration</h3>
+            <p>Set up a channel to automatically uwuify messages seamlessly.</p>
+        </div>
+        <div class="card">
+            <h3>Owner Only Modes</h3>
+            <p>Exclusive modes like /npcify for server owners.</p>
+        </div>
+        <div class="card">
+            <h3>Lightweight & Fast</h3>
+            <p>Runs efficiently with minimal latency.</p>
+        </div>
     </div>
 </section>
 
 <!-- COMMANDS -->
 <section id="commands">
     <h2>Commands</h2>
-
+    <p>Copy commands directly into Discord:</p>
     <div class="command">
-        <code>/uwuify @user</code>
-        <button onclick="copy('/uwuify @user')">Copy</button>
+        <code>/uwuify @user</code><button onclick="copy('/uwuify @user')">Copy</button>
     </div>
-
     <div class="command">
-        <code>/webhook #channel</code>
-        <button onclick="copy('/webhook #channel')">Copy</button>
+        <code>/webhook #channel</code><button onclick="copy('/webhook #channel')">Copy</button>
     </div>
-
     <div class="command">
-        <code>/help</code>
-        <button onclick="copy('/help')">Copy</button>
+        <code>/help</code><button onclick="copy('/help')">Copy</button>
     </div>
 </section>
 
 <!-- DOCS -->
 <section id="docs">
     <h2>Documentation</h2>
-    <div class="card">
-        <p><b>/uwuify</b> – Converts a user's messages into uwu style live.</p>
-        <p><b>/webhook</b> – Sets channel for message rewriting.</p>
-        <p><b>/help</b> – Displays command help menu.</p>
+    <div class="doc-card">
+        <h3>/uwuify @user</h3>
+        <p>Transforms all messages of the mentioned user into uwu style live.</p>
+
+        <h3>/webhook #channel</h3>
+        <p>Sets the specified channel for live transformations via webhooks.</p>
+
+        <h3>/help</h3>
+        <p>Displays the full command list and usage instructions.</p>
+
+        <h3>Tips:</h3>
+        <ul>
+            <li>You must have Manage Webhooks permission to use /webhook.</li>
+            <li>Transformations are temporary and don’t store messages permanently.</li>
+            <li>Owner-only commands are protected.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- DEMO CHAT -->
+<section id="demo">
+    <h2>Live Demo</h2>
+    <div class="chat-box">
+        <div id="chat-output"></div>
+        <input type="text" id="chat-input" placeholder="Type a message to uwuify">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <p class="demo-note">This demo simulates how uwuify transforms messages in Discord.</p>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+    <h2>FAQ</h2>
+    <div class="faq-card">
+        <h3>Is uwuify free?</h3>
+        <p>Yes! Fully free to invite and use on any server.</p>
+    </div>
+    <div class="faq-card">
+        <h3>Does uwuify store messages?</h3>
+        <p>No messages are stored permanently. Only temporary processing for transformations.</p>
+    </div>
+    <div class="faq-card">
+        <h3>Can I remove uwuify from my server?</h3>
+        <p>Yes, you can remove the bot anytime like any other Discord bot.</p>
     </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <h3>Privacy Policy</h3>
-    <p>
-        uwuify does not permanently store message content.
-        Data such as user IDs and server IDs may be stored temporarily for functionality.
-        No data is sold or shared with third parties.
-    </p>
+    <div>
+        <h3>Privacy Policy</h3>
+        <p>uwuify does not permanently store message content. User IDs and server IDs are temporarily stored for functionality. No data is sold or shared.</p>
+    </div>
 </footer>
 
 <script src="script.js"></script>
