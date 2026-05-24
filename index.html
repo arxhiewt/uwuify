@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <!-- BACKGROUND DECOR -->
@@ -53,7 +54,6 @@
     </p>
 
     <div class="hero-buttons">
-        <!-- KEEP EXACT SAME -->
         <a href="https://discord.com/oauth2/authorize?client_id=1429492700440166573" class="btn primary-btn">
             Invite uwuify
         </a>
@@ -113,7 +113,6 @@
 
         <div class="card">
             <h3>Bot Permissions</h3>
-
             <ul>
                 <li>View Channels</li>
                 <li>Send Messages</li>
@@ -125,7 +124,6 @@
 
         <div class="card">
             <h3>Who Can Use Commands?</h3>
-
             <ul>
                 <li>Administrator</li>
                 <li>Ban Members</li>
@@ -134,11 +132,6 @@
             </ul>
         </div>
 
-    </div>
-
-    <div class="info-box">
-        Ensure your moderation roles include the required permissions.
-        This keeps your server secure and prevents abuse.
     </div>
 
 </section>
@@ -156,23 +149,17 @@
 
         <div class="command">
             <code>/uwuify &lt;user&gt;</code>
-            <button onclick="copyCommand('/uwuify @user')">
-                Copy
-            </button>
+            <button onclick="copyCommand('/uwuify @user')">Copy</button>
         </div>
 
         <div class="command">
             <code>/webhook &lt;#channel&gt;</code>
-            <button onclick="copyCommand('/webhook #channel')">
-                Copy
-            </button>
+            <button onclick="copyCommand('/webhook #channel')">Copy</button>
         </div>
 
         <div class="command">
             <code>/help</code>
-            <button onclick="copyCommand('/help')">
-                Copy
-            </button>
+            <button onclick="copyCommand('/help')">Copy</button>
         </div>
 
     </div>
@@ -185,65 +172,91 @@
     <div class="section-title">
         <span>latest changes</span>
         <h2>Update Log</h2>
-        <p>Recent fixes and improvements.</p>
     </div>
 
     <div class="update-log">
 
         <div class="update-entry">
             <span class="update-date">22 May 2026</span>
-            <p>
-                Fixed webhook handling stability issues and improved
-                webhook reliability during Discord rate limits.
-            </p>
+            <p>Improved webhook stability and rate limit handling.</p>
         </div>
 
         <div class="update-entry">
             <span class="update-date">21 May 2026</span>
-            <p>
-                Improved message delivery speed and reduced duplicate
-                webhook creation issues.
-            </p>
-        </div>
-
-        <div class="update-entry">
-            <span class="update-date">20 May 2026</span>
-            <p>
-                Improved automatic error logging and command response
-                consistency.
-            </p>
-        </div>
-
-        <div class="update-entry">
-            <span class="update-date">19 May 2026</span>
-            <p>
-                Updated webhook cleanup system to prevent failed message
-                loops.
-            </p>
+            <p>Optimized message queue system for faster processing.</p>
         </div>
 
     </div>
 
 </section>
 
-<!-- TROUBLESHOOTING -->
+<!-- TROUBLESHOOTING (UPDATED WITH FULL DOCS) -->
 <section id="troubleshooting">
 
     <div class="section-title">
-        <span>help</span>
-        <h2>Troubleshooting</h2>
-        <p>
-            Full documentation is still being expanded.
-        </p>
+        <span>help center</span>
+        <h2>Troubleshooting & Documentation</h2>
+        <p>Everything you need to fix and understand uwuify.</p>
     </div>
 
     <div class="card">
+
+        <h3>How does uwuify work?</h3>
+        <p>
+            uwuify uses Discord webhooks to replace user messages in real time.
+            When activated with <code>/uwuify</code>, the bot temporarily takes control of a user's messages.
+        </p>
+
         <ul>
-            <li>Ensure Manage Webhooks permission is enabled.</li>
-            <li>Make sure the bot role is above managed users.</li>
-            <li>Check that slash commands finished syncing.</li>
-            <li>Re-invite the bot if permissions changed.</li>
+            <li>Messages are deleted immediately after being sent</li>
+            <li>They are re-sent using a webhook</li>
+            <li>The text is transformed using the uwu engine</li>
         </ul>
+
+        <br>
+
+        <h3>What are uwuify limits?</h3>
+        <ul>
+            <li>Maximum 2 active users per server</li>
+            <li>Each session lasts 5 minutes</li>
+            <li>5 second moderator cooldown</li>
+            <li>Messages are queued to avoid Discord rate limits</li>
+        </ul>
+
+        <br>
+
+        <h3>Webhook error? Transformation not working?</h3>
+        <ul>
+            <li>Ensure bot has Manage Webhooks permission</li>
+            <li>Run <code>/webhook #channel</code> again</li>
+            <li>Make sure you are in the correct configured channel</li>
+            <li>Check if webhook was deleted manually</li>
+        </ul>
+
+        <br>
+
+        <h3>Bot could not respond?</h3>
+        <ul>
+            <li>Bot may be offline or restarting</li>
+            <li>Slash commands may still be syncing</li>
+            <li>Missing permissions in the server</li>
+            <li>Channel restrictions may block interactions</li>
+        </ul>
+
+        <br>
+
+        <h3>Frequently Asked Issues</h3>
+
+        <p><b>uwuify is too slow</b></p>
+        <p>
+            This is normal. Messages are processed through a queue system to prevent Discord rate limits.
+        </p>
+
+        <p><b>uwuify is lagging</b></p>
+        <p>
+            Lag happens when multiple users are active or Discord API is slow. Reducing active users improves performance.
+        </p>
+
     </div>
 
 </section>
@@ -258,22 +271,12 @@
 
     <div class="card">
         <p>
-            uwuify temporarily processes messages for live uwuification.
-            Messages are deleted immediately after being sent.
+            uwuify only processes messages temporarily for transformation.
+            Messages are deleted immediately after processing.
         </p>
 
-        <br>
-
         <p>
-            The only temporary data stored is which users are currently
-            being uwufied. This data is automatically removed once the
-            command ends or is manually stopped.
-        </p>
-
-        <br>
-
-        <p>
-            No permanent storage of messages, user IDs or server data occurs.
+            No permanent storage of messages or user content occurs.
         </p>
     </div>
 
@@ -282,14 +285,14 @@
 <!-- FOOTER -->
 <footer>
 
-    <h3>Join the official uwuify community</h3>
+    <h3>Join the uwuify community</h3>
 
     <a href="https://discord.gg/HZthcDvdMz" class="footer-discord">
-        Join uwuify.uk Discord Server
+        Join Discord
     </a>
 
     <p class="footer-small">
-        © 2026 uwuify — made for Discord communities
+        © 2026 uwuify
     </p>
 
 </footer>
