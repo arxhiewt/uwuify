@@ -3,299 +3,457 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>uwuify - Discord Bot</title>
-
-<link rel="stylesheet" href="style.css" />
-
+<title>uwuify — Live Discord Message Transformation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<!-- BACKGROUND DECOR -->
-<div class="bg-blur blur1"></div>
-<div class="bg-blur blur2"></div>
-
-<!-- ANNOUNCEMENT -->
-<div class="announcement">
-    <span class="status-dot"></span>
-    uwuify is up [BETA]
+<!-- BANNER — edit text here freely -->
+<div class="top-banner" id="top-banner">
+  <span class="banner-dot"></span>
+  <span class="banner-text">uwuify is up</span>
+  <button class="banner-close" onclick="document.getElementById('top-banner').style.display='none'" aria-label="Dismiss">×</button>
 </div>
 
 <!-- NAVBAR -->
-<nav>
-    <div class="logo">
-        <span>uwuify</span>
-    </div>
-
-    <div class="nav-links">
-        <a href="#demo">Demo</a>
-        <a href="#setup">Setup</a>
-        <a href="#commands">Commands</a>
-        <a href="#updates">Updates</a>
-        <a href="#troubleshooting">Troubleshooting</a>
-        <a href="#privacy">Privacy</a>
-    </div>
+<nav id="navbar">
+  <a href="#" class="logo">uwuify</a>
+  <div class="nav-links">
+    <a href="#how-it-works">How it works</a>
+    <a href="#commands">Commands</a>
+    <a href="#faq">FAQ</a>
+    <a href="#legal">Legal</a>
+  </div>
+  <a href="https://discord.com/oauth2/authorize?client_id=1429492700440166573" class="nav-cta" target="_blank" rel="noopener">Add to Discord</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#how-it-works" onclick="closeMenu()">How it works</a>
+  <a href="#commands" onclick="closeMenu()">Commands</a>
+  <a href="#faq" onclick="closeMenu()">FAQ</a>
+  <a href="#legal" onclick="closeMenu()">Legal</a>
+  <a href="https://discord.com/oauth2/authorize?client_id=1429492700440166573" class="mobile-cta" target="_blank" rel="noopener">Add to Discord →</a>
+</div>
+
 <!-- HERO -->
-<section class="hero">
-
-    <div class="hero-badge">
-        cute live text transformation bot
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="pill">Live Text Transformation</span>
     </div>
-
-    <h1>Live Discord message uwuification.</h1>
-
-    <p>
-        Transform messages in real-time using webhooks with a clean,
-        simple and fun setup experience.
-    </p>
-
-    <div class="hero-buttons">
-        <a href="https://discord.com/oauth2/authorize?client_id=1429492700440166573" class="btn primary-btn">
-            Invite uwuify
-        </a>
-
-        <a href="#demo" class="btn secondary-btn">
-            View Demo
-        </a>
+    <h1>Make someone talk in uwu. <em>Live.</em></h1>
+    <p class="hero-sub">uwuify intercepts messages in real-time using Discord webhooks — no plugins, no fuss. Activate on a user and watch every message they send get transformed instantly.</p>
+    <div class="hero-actions">
+      <a href="https://discord.com/oauth2/authorize?client_id=1429492700440166573" class="btn btn-primary" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.101 18.079.11 18.1.128 18.113a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+        Add to Discord
+      </a>
+      <a href="#demo" class="btn btn-ghost">See demo →</a>
     </div>
-
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">5 min</span><span class="stat-label">Session length</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num">Real-time</span><span class="stat-label">Transformation</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num">0 data stored</span><span class="stat-label">Privacy first</span></div>
+    </div>
+  </div>
+  <div class="hero-right" id="demo">
+    <div class="demo-card">
+      <div class="demo-header">
+        <div class="demo-dots"><span></span><span></span><span></span></div>
+        <span class="demo-label">live preview</span>
+      </div>
+      <div class="chat-output" id="chat-output">
+        <p class="sys-msg">Send a message below to try the demo.</p>
+      </div>
+      <div class="chat-suggestion" id="uwuify-btn-container" style="display:none;">
+        <span>Try activating uwuify on CoolEthan133:</span>
+        <button id="run-command">Use /uwuify CoolEthan133</button>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="Send a message…" autocomplete="off" />
+        <button id="send-btn" aria-label="Send">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </div>
+    </div>
+    <p class="demo-note">Messages from CoolEthan133 appear automatically. Type anything to begin.</p>
+  </div>
 </section>
 
-<!-- DEMO -->
-<section id="demo">
-
-    <div class="section-title">
-        <span>live preview</span>
-        <h2>Interactive Demo</h2>
-        <p>Try the fake chat below to see how uwuify works.</p>
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="section">
+  <div class="section-header">
+    <span class="eyebrow">how it works</span>
+    <h2>Simple to activate. Instantly hilarious.</h2>
+    <p>Three steps from setup to chaos.</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <h3>Add uwuify to your server</h3>
+      <p>Invite the bot and grant the required permissions. Takes under a minute.</p>
     </div>
-
-    <div class="chat-box">
-
-        <div id="chat-output">
-            <p class="system-msg">
-                Send a message here to start the demo!
-            </p>
-        </div>
-
-        <div class="chat-buttons" id="uwuify-btn-container" style="display:none;">
-            <button id="run-command">Uwuify CoolEthan133</button>
-        </div>
-
-        <div class="chat-input-container">
-            <input type="text" id="chat-input" placeholder="Send a message..." />
-            <button id="send-btn">Send</button>
-        </div>
-
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <h3>Set up a channel webhook</h3>
+      <p>Run <code>/webhook #channel</code> in the channel you want uwuify to operate in. One webhook per server.</p>
     </div>
-
-    <p class="demo-note">
-        Messages from Ethan and Alexson67 will appear automatically.
-        Your messages appear as <b>You</b>.
-    </p>
-
-</section>
-
-<!-- SETUP -->
-<section id="setup">
-
-    <div class="section-title">
-        <span>permissions</span>
-        <h2>Setup Information</h2>
-        <p>These permissions are required for uwuify to work properly.</p>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <h3>Activate on a user</h3>
+      <p>Run <code>/uwuify @user 5m</code> and every message they send gets intercepted and re-sent in uwu. They can't escape.</p>
     </div>
-
-    <div class="grid">
-
-        <div class="card">
-            <h3>Bot Permissions</h3>
-            <ul>
-                <li>View Channels</li>
-                <li>Send Messages</li>
-                <li>Read Message History</li>
-                <li>Manage Messages</li>
-                <li>Manage Webhooks</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>Who Can Use Commands?</h3>
-            <ul>
-                <li>Administrator</li>
-                <li>Ban Members</li>
-                <li>Kick Members</li>
-                <li>Timeout Members</li>
-            </ul>
-        </div>
-
+  </div>
+  <div class="info-strip">
+    <div class="info-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Messages are deleted and re-sent through a webhook so the transformation appears seamless in chat.
     </div>
-
+    <div class="info-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Due to Discord API limits, only <strong>1 active transformation</strong> is allowed per server at a time.
+    </div>
+  </div>
 </section>
 
 <!-- COMMANDS -->
-<section id="commands">
+<section id="commands" class="section section-alt">
+  <div class="section-header">
+    <span class="eyebrow">commands</span>
+    <h2>Everything you need to know.</h2>
+  </div>
+  <div class="commands-table">
 
-    <div class="section-title">
-        <span>bot commands</span>
-        <h2>Commands</h2>
-        <p>Quickly copy the commands below.</p>
+    <div class="cmd-row">
+      <div class="cmd-left">
+        <code>/uwuify &lt;user&gt; &lt;duration&gt;</code>
+        <span class="cmd-tag">moderator</span>
+      </div>
+      <div class="cmd-right">
+        <p>Activates uwuify on a user for the specified duration. All messages they send in the configured channel will be intercepted and transformed in real-time.</p>
+        <p class="cmd-example">Example: <code>/uwuify @CoolEthan133 5m</code></p>
+      </div>
+      <button class="copy-btn" onclick="copyCmd('/uwuify @user 5m')">Copy</button>
     </div>
 
-    <div class="command-list">
-
-        <div class="command">
-            <code>/uwuify &lt;user&gt;</code>
-            <button onclick="copyCommand('/uwuify @user')">Copy</button>
-        </div>
-
-        <div class="command">
-            <code>/webhook &lt;#channel&gt;</code>
-            <button onclick="copyCommand('/webhook #channel')">Copy</button>
-        </div>
-
-        <div class="command">
-            <code>/help</code>
-            <button onclick="copyCommand('/help')">Copy</button>
-        </div>
-
+    <div class="cmd-row">
+      <div class="cmd-left">
+        <code>/webhook &lt;#channel&gt;</code>
+        <span class="cmd-tag">moderator</span>
+      </div>
+      <div class="cmd-right">
+        <p>Sets up the webhook for a specific channel. This must be configured before activating uwuify. Only one webhook is allowed per server — running this again will replace the existing one.</p>
+        <p class="cmd-example">Example: <code>/webhook #general</code></p>
+      </div>
+      <button class="copy-btn" onclick="copyCmd('/webhook #channel')">Copy</button>
     </div>
 
+    <div class="cmd-row">
+      <div class="cmd-left">
+        <code>/help</code>
+        <span class="cmd-tag">all users</span>
+      </div>
+      <div class="cmd-right">
+        <p>Displays a quick-reference list of commands and links directly in Discord. You can also check the bot's bio for quick links.</p>
+      </div>
+      <button class="copy-btn" onclick="copyCmd('/help')">Copy</button>
+    </div>
+
+  </div>
+
+  <div class="perms-grid">
+    <div class="perm-block">
+      <h4>Bot requires these permissions</h4>
+      <ul>
+        <li><span class="check">✓</span> View Channels</li>
+        <li><span class="check">✓</span> Send Messages</li>
+        <li><span class="check">✓</span> Read Message History</li>
+        <li><span class="check">✓</span> Manage Messages</li>
+        <li><span class="check">✓</span> Manage Webhooks</li>
+      </ul>
+    </div>
+    <div class="perm-block">
+      <h4>Who can run commands?</h4>
+      <ul>
+        <li><span class="check">✓</span> Administrator</li>
+        <li><span class="check">✓</span> Ban Members</li>
+        <li><span class="check">✓</span> Kick Members</li>
+        <li><span class="check">✓</span> Timeout Members</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <!-- UPDATES -->
-<section id="updates">
-
-    <div class="section-title">
-        <span>latest changes</span>
-        <h2>Update Log</h2>
+<section id="updates" class="section">
+  <div class="section-header">
+    <span class="eyebrow">changelog</span>
+    <h2>Update Log</h2>
+  </div>
+  <div class="changelog">
+    <div class="changelog-entry">
+      <div class="changelog-meta">
+        <span class="changelog-date">22 May 2026</span>
+        <span class="changelog-badge fix">fix</span>
+      </div>
+      <p>Improved webhook stability and rate limit handling.</p>
     </div>
-
-    <div class="update-log">
-
-        <div class="update-entry">
-            <span class="update-date">22 May 2026</span>
-            <p>Improved webhook stability and rate limit handling.</p>
-        </div>
-
-        <div class="update-entry">
-            <span class="update-date">21 May 2026</span>
-            <p>Optimized message queue system for faster processing.</p>
-        </div>
-
+    <div class="changelog-entry">
+      <div class="changelog-meta">
+        <span class="changelog-date">21 May 2026</span>
+        <span class="changelog-badge improve">improvement</span>
+      </div>
+      <p>Optimised message queue system for faster processing.</p>
     </div>
-
+  </div>
 </section>
 
-<!-- TROUBLESHOOTING (UPDATED WITH FULL DOCS) -->
-<section id="troubleshooting">
+<!-- FAQ -->
+<section id="faq" class="section section-alt">
+  <div class="section-header">
+    <span class="eyebrow">faq & docs</span>
+    <h2>Frequently Asked Questions</h2>
+    <p>Click any question to expand the answer.</p>
+  </div>
 
-    <div class="section-title">
-        <span>help center</span>
-        <h2>Troubleshooting & Documentation</h2>
-        <p>Everything you need to fix and understand uwuify.</p>
+  <div class="faq-group">
+    <div class="faq-group-label">Using uwuify</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>How do I start using uwuify?</span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p>First, invite uwuify to your server. Then run <code>/webhook #channel</code> in the channel you want it to work in. After that, run <code>/uwuify @user duration</code> to activate on someone. That's it.</p>
+      </div>
     </div>
 
-    <div class="card">
-
-        <h3>How does uwuify work?</h3>
-        <p>
-            uwuify uses Discord webhooks to replace user messages in real time.
-            When activated with <code>/uwuify</code>, the bot temporarily takes control of a user's messages.
-        </p>
-
-        <ul>
-            <li>Messages are deleted immediately after being sent</li>
-            <li>They are re-sent using a webhook</li>
-            <li>The text is transformed using the uwu engine</li>
-        </ul>
-
-        <br>
-
-        <h3>What are uwuify limits?</h3>
-        <ul>
-            <li>Maximum 2 active users per server</li>
-            <li>Each session lasts 5 minutes</li>
-            <li>5 second moderator cooldown</li>
-            <li>Messages are queued to avoid Discord rate limits</li>
-        </ul>
-
-        <br>
-
-        <h3>Webhook error? Transformation not working?</h3>
-        <ul>
-            <li>Ensure bot has Manage Webhooks permission</li>
-            <li>Run <code>/webhook #channel</code> again</li>
-            <li>Make sure you are in the correct configured channel</li>
-            <li>Check if webhook was deleted manually</li>
-        </ul>
-
-        <br>
-
-        <h3>Bot could not respond?</h3>
-        <ul>
-            <li>Bot may be offline or restarting</li>
-            <li>Slash commands may still be syncing</li>
-            <li>Missing permissions in the server</li>
-            <li>Channel restrictions may block interactions</li>
-        </ul>
-
-        <br>
-
-        <h3>Frequently Asked Issues</h3>
-
-        <p><b>uwuify is too slow</b></p>
-        <p>
-            This is normal. Messages are processed through a queue system to prevent Discord rate limits.
-        </p>
-
-        <p><b>uwuify is lagging</b></p>
-        <p>
-            Lag happens when multiple users are active or Discord API is slow. Reducing active users improves performance.
-        </p>
-
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>How do I enable uwuify in a different channel?</span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p>Run <code>/webhook #new-channel</code> in the new channel. Note: uwuify supports only <strong>one webhook per server</strong>. Running this command will replace the existing webhook, so the bot will now operate in the new channel instead.</p>
+      </div>
     </div>
 
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>How long does a session last?</span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p>Each transformation session lasts up to <strong>5 minutes</strong> by default, or whatever duration you specify when running <code>/uwuify</code>. After the session ends, messages go back to normal automatically.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Where can I check all links and info?</span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p>Run <code>/help</code> in Discord for a quick in-chat reference, or check the bot's bio directly on its profile for links and quick info.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-group">
+    <div class="faq-group-label">Limitations</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Why can only one person be uwuified at a time?</span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p>Due to current Discord API constraints, uwuify is limited to <strong>1 active transformation per server</strong> at a time. This also means only 1 webhook per server is supported. This is a platform limitation we're working within, not a design choice.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Why is there a 5-second cooldown for moderators?</span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p>A 5-second cooldown is in place to prevent spam and protect against Discord rate limits. This ensures the bot stays stable for everyone in the server.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-group">
+    <div class="faq-group-label">Troubleshooting</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Webhook error or transformation not working?</span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <ul>
+          <li>Make sure uwuify has the <strong>Manage Webhooks</strong> permission in your server.</li>
+          <li>Try running <code>/webhook #channel</code> again to recreate the webhook.</li>
+          <li>Confirm you're sending messages in the configured channel.</li>
+          <li>Check if the webhook was deleted manually in Server Settings → Integrations.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Bot not responding to slash commands?</span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <ul>
+          <li>The bot may be restarting — wait a moment and try again.</li>
+          <li>Slash commands can take a few minutes to sync after the bot joins a new server.</li>
+          <li>Check that uwuify has permission to interact in that channel.</li>
+          <li>Make sure channel restrictions aren't blocking bot interactions.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Messages feel slow or laggy?</span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p>Messages go through a queue system to prevent hitting Discord's rate limits — a small delay is normal and expected. If lag is significant, it may be due to Discord's API being slow. The bot has no control over Discord-side latency.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- PRIVACY -->
-<section id="privacy">
+<!-- LEGAL -->
+<section id="legal" class="section">
+  <div class="section-header">
+    <span class="eyebrow">legal</span>
+    <h2>Privacy Policy & Terms</h2>
+    <p>Last updated: May 2026</p>
+  </div>
 
-    <div class="section-title">
-        <span>privacy</span>
-        <h2>Privacy Policy</h2>
+  <div class="legal-grid">
+
+    <div class="legal-block">
+      <h3>Privacy Policy</h3>
+
+      <div class="legal-clause">
+        <h4>1. What data we collect</h4>
+        <p>uwuify collects only the minimum data required to function:</p>
+        <ul>
+          <li>The Discord <strong>server ID</strong> of servers that invite the bot, in order to associate webhook configuration with the correct server.</li>
+          <li>An invite record when uwuify is added to a server.</li>
+        </ul>
+        <p>We do <strong>not</strong> collect, log, or store message content, user IDs, usernames, or any personal user data.</p>
+      </div>
+
+      <div class="legal-clause">
+        <h4>2. How messages are handled</h4>
+        <p>When uwuify is active on a user, messages are intercepted in real-time, transformed, and immediately re-sent via webhook. Messages are processed <strong>in memory only</strong> and are never written to a database or log file. No permanent copy of any message is retained.</p>
+      </div>
+
+      <div class="legal-clause">
+        <h4>3. Opting out</h4>
+        <p>Server administrators can prevent uwuify from collecting server data by removing the bot from their server. To prevent uwuify from creating webhooks, remove the <strong>Create Instant Invite</strong> and <strong>Manage Webhooks</strong> permissions from the bot role in your Server Settings.</p>
+      </div>
+
+      <div class="legal-clause">
+        <h4>4. Third-party services</h4>
+        <p>uwuify operates solely within the Discord platform. We do not share any data with third-party services or advertisers.</p>
+      </div>
+
+      <div class="legal-clause">
+        <h4>5. Contact</h4>
+        <p>For privacy-related questions, join our <a href="https://discord.gg/HZthcDvdMz" target="_blank" rel="noopener">Discord server</a> and open a support thread.</p>
+      </div>
     </div>
 
-    <div class="card">
-        <p>
-            uwuify only processes messages temporarily for transformation.
-            Messages are deleted immediately after processing.
-        </p>
+    <div class="legal-block">
+      <h3>Terms of Service</h3>
 
-        <p>
-            No permanent storage of messages or user content occurs.
-        </p>
+      <div class="legal-clause">
+        <h4>1. Acceptance</h4>
+        <p>By adding uwuify to your Discord server, you agree to these Terms of Service and Discord's own <a href="https://discord.com/terms" target="_blank" rel="noopener">Terms of Service</a>. If you do not agree, please remove the bot from your server.</p>
+      </div>
+
+      <div class="legal-clause">
+        <h4>2. Permitted use</h4>
+        <p>uwuify is intended for entertainment purposes within Discord servers where all users are consenting participants. You agree to use uwuify only in servers where you have the authority to do so, and only on users who are aware of and accept the bot's behaviour.</p>
+      </div>
+
+      <div class="legal-clause">
+        <h4>3. Prohibited use</h4>
+        <p>You may not use uwuify to:</p>
+        <ul>
+          <li>Harass, abuse, or target users without their knowledge or consent.</li>
+          <li>Circumvent Discord's Terms of Service or Community Guidelines.</li>
+          <li>Attempt to reverse-engineer, abuse, or exploit the bot's functionality.</li>
+        </ul>
+      </div>
+
+      <div class="legal-clause">
+        <h4>4. Availability</h4>
+        <p>uwuify is provided as-is, currently in beta. We do not guarantee uninterrupted availability. The service may be updated, modified, or discontinued at any time without prior notice.</p>
+      </div>
+
+      <div class="legal-clause">
+        <h4>5. Limitation of liability</h4>
+        <p>uwuify is not responsible for any disruption, data loss, or misuse arising from the use of this bot. Server administrators are responsible for ensuring the bot is used appropriately within their communities.</p>
+      </div>
+
+      <div class="legal-clause">
+        <h4>6. Changes to terms</h4>
+        <p>These terms may be updated at any time. Continued use of uwuify after changes are posted constitutes acceptance of the revised terms.</p>
+      </div>
     </div>
 
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-
-    <h3>Join the uwuify community</h3>
-
-    <a href="https://discord.gg/HZthcDvdMz" class="footer-discord">
-        Join Discord
-    </a>
-
-    <p class="footer-small">
-        © 2026 uwuify
-    </p>
-
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo">uwuify</span>
+      <p>Live Discord message transformation. Simple, fast, and a little chaotic.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">Bot</span>
+        <a href="https://discord.com/oauth2/authorize?client_id=1429492700440166573" target="_blank" rel="noopener">Add to Discord</a>
+        <a href="https://discord.gg/HZthcDvdMz" target="_blank" rel="noopener">Support Server</a>
+        <a href="#commands">Commands</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Info</span>
+        <a href="#how-it-works">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#legal">Privacy Policy</a>
+        <a href="#legal">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 uwuify — All rights reserved.</span>
+    <span>Currently in beta.</span>
+  </div>
 </footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">Copied to clipboard</div>
 
 <script src="script.js"></script>
 </body>
