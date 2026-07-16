@@ -9,23 +9,18 @@
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://uwuify.uk/" />
 
-<!-- Open Graph / social preview -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="uwuify" />
 <meta property="og:title" content="uwuify — Live Discord Message Transformation Bot" />
 <meta property="og:description" content="Live-transform a chosen member's Discord messages into uwu speak in real time. No AI, no message storage." />
 <meta property="og:url" content="https://uwuify.uk/" />
 <meta property="og:image" content="https://uwuify.uk/assets/logo2.png" />
-<!-- Swap og-image.png (recommended 1200x630) into /assets for a proper social preview card -->
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="uwuify — Live Discord Message Transformation Bot" />
 <meta name="twitter:description" content="Live-transform a chosen member's Discord messages into uwu speak in real time. No AI, no message storage." />
 <meta name="twitter:image" content="https://uwuify.uk/assets/logo2.png" />
 
-<!-- LOGO: two placeholder spots use assets/logo-placeholder.svg (navbar + footer).
-     Replace that file with your bot's real logo (square, transparent background works best)
-     — keep the filename the same and both spots update automatically. -->
 <link rel="icon" type="image/svg+xml" href="assets/logo.png" />
 
 <script type="application/ld+json">
@@ -51,14 +46,12 @@
 </head>
 <body>
 
-<!-- STATUS BANNER -->
 <div class="top-banner" id="top-banner">
   <span class="banner-dot"></span>
   <span class="banner-text">uwuify is up</span>
   <button class="banner-close" id="banner-close" aria-label="Dismiss">×</button>
 </div>
 
-<!-- NAVBAR -->
 <nav id="navbar">
   <a href="#" class="brand">
     <img src="assets/logo-placeholder.svg" alt="uwuify logo" class="brand-mark" width="30" height="30" />
@@ -67,7 +60,7 @@
   <div class="nav-links">
     <a href="#how-it-works">How it works</a>
     <a href="#commands">Commands</a>
-    <a href="#updates">Updates</a>
+    <a href="#settings">Settings</a>
     <a href="#legal">Legal</a>
   </div>
   <a href="https://discord.com/oauth2/authorize?client_id=1429492700440166573" class="nav-cta" target="_blank" rel="noopener">Invite uwuify</a>
@@ -76,11 +69,10 @@
   </button>
 </nav>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
   <a href="#how-it-works">How it works</a>
   <a href="#commands">Commands</a>
-  <a href="#updates">Updates</a>
+  <a href="#settings">Settings</a>
   <a href="#legal">Legal</a>
   <a href="https://discord.com/oauth2/authorize?client_id=1429492700440166573" class="mobile-cta" target="_blank" rel="noopener">Invite uwuify →</a>
 </div>
@@ -90,7 +82,7 @@
   <div class="hero-left">
     <span class="pill">Live message transformation</span>
     <h1>Make anyone talk in <em>uwu</em> — live.</h1>
-    <p class="hero-sub">uwuify is a live Discord message transformation bot. The moment someone you've activated sends a message, it's intercepted, transformed, and reposted through a webhook — no plugins, no setup on their end.</p>
+    <p class="hero-sub">Invite uwuify and run <code>/uwuify</code>. It sets up the channel for you automatically. Every message from the member you pick gets transformed and reposted in real time — no setup on their end.</p>
     <div class="hero-actions">
       <a href="https://discord.com/oauth2/authorize?client_id=1429492700440166573" class="btn btn-primary" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.101 18.079.11 18.1.128 18.113a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
@@ -98,21 +90,21 @@
       </a>
       <a href="#demo" class="btn btn-ghost">See demo</a>
     </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-num">5 min</span>
-        <span class="stat-label">Max session length</span>
+
+    <!-- SIGNATURE ELEMENT: channel occupancy strip -->
+    <div class="occupancy">
+      <div class="occupancy-top">
+        <span class="occupancy-channel"><span class="ch-hash">#</span>general</span>
+        <span class="occupancy-count">3 / 5 active</span>
       </div>
-      <div class="stat-div" aria-hidden="true"></div>
-      <div class="stat">
-        <span class="stat-num">Real-time</span>
-        <span class="stat-label">Transformation</span>
+      <div class="occupancy-slots">
+        <span class="slot filled"></span>
+        <span class="slot filled"></span>
+        <span class="slot filled"></span>
+        <span class="slot"></span>
+        <span class="slot"></span>
       </div>
-      <div class="stat-div" aria-hidden="true"></div>
-      <div class="stat">
-        <span class="stat-num">No AI</span>
-        <span class="stat-label">Messages never stored</span>
-      </div>
+      <div class="occupancy-foot">One channel at a time per server · move it with <code>/webhook</code></div>
     </div>
   </div>
 
@@ -178,24 +170,24 @@
 <section id="how-it-works" class="section reveal">
   <div class="section-header">
     <span class="eyebrow">How it works</span>
-    <h2>Three steps to get started</h2>
-    <p>From invite to active in under a minute.</p>
+    <h2>Invite it, then run one command</h2>
+    <p>The first time you run /uwuify, it sets up the channel for you. No manual setup step.</p>
   </div>
   <div class="steps-grid">
     <div class="step-card">
       <div class="step-num">01</div>
       <h3>Add uwuify to your server</h3>
-      <p>Invite the bot and grant it the required permissions. The whole process takes under a minute.</p>
+      <p>Invite the bot and accept the permissions it asks for.</p>
     </div>
     <div class="step-card">
       <div class="step-num">02</div>
-      <h3>Set up a channel webhook</h3>
-      <p>Run <code>/webhook #channel</code> in the channel you want uwuify to work in. One webhook per server is supported.</p>
+      <h3>Run /uwuify in a channel</h3>
+      <p>The channel is set up automatically the first time you run it. Transformation only happens in one channel per server at a time.</p>
     </div>
     <div class="step-card">
       <div class="step-num">03</div>
-      <h3>Activate on a member</h3>
-      <p>Run <code>/uwuify @user 5m</code>. Every message they send in that channel is intercepted and transformed automatically.</p>
+      <h3>Move channels anytime</h3>
+      <p>Want a different channel instead? Run <code>/webhook #channel</code> to move it there.</p>
     </div>
   </div>
   <div class="info-strip">
@@ -203,13 +195,13 @@
       <span class="info-icon" aria-hidden="true">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       </span>
-      Messages are deleted and re-sent through a webhook so the transformation appears seamless in chat.
+      Messages are deleted and re-sent through a webhook, so the transformation looks seamless in chat.
     </div>
     <div class="info-item">
       <span class="info-icon" aria-hidden="true">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       </span>
-      Due to Discord API limits, only <strong>two active transformation</strong> is allowed per server at a time.
+      Up to <strong>5 members</strong> can be uwuified at the same time, all in that one active channel.
     </div>
   </div>
 </section>
@@ -225,20 +217,28 @@
     <div class="cmd-list">
       <div class="cmd-card">
         <div class="cmd-top">
-          <div class="cmd-name"><code>/uwuify &lt;user&gt; &lt;duration&gt;</code><span class="cmd-tag">Moderator</span></div>
+          <div class="cmd-name"><code>/uwuify &lt;user&gt; &lt;duration&gt;</code><span class="cmd-tag">See permissions below</span></div>
           <button class="copy-btn" data-cmd="/uwuify @user 5m" type="button">Copy</button>
         </div>
-        <p class="cmd-desc">Activates uwuify on a member for the specified duration. Every message they send in the configured channel is transformed in real time.</p>
+        <p class="cmd-desc">Activates uwuify on a member for the given duration. If this is the first time it's been run in your server, it also sets up the channel automatically. Up to 5 members can be active at once, all in the same channel.</p>
         <p class="cmd-example">e.g. <code>/uwuify @CoolEthan133 5m</code></p>
       </div>
 
       <div class="cmd-card">
         <div class="cmd-top">
-          <div class="cmd-name"><code>/webhook &lt;#channel&gt;</code><span class="cmd-tag">Moderator</span></div>
+          <div class="cmd-name"><code>/webhook &lt;#channel&gt;</code><span class="cmd-tag">Administrator</span></div>
           <button class="copy-btn" data-cmd="/webhook #channel" type="button">Copy</button>
         </div>
-        <p class="cmd-desc">Sets up the webhook for a channel. Must be run before activating uwuify. Only one webhook per server is allowed — running this again replaces the existing one.</p>
+        <p class="cmd-desc">Moves uwuify to a different channel. Only one channel per server can be active — running this replaces the current one.</p>
         <p class="cmd-example">e.g. <code>/webhook #general</code></p>
+      </div>
+
+      <div class="cmd-card">
+        <div class="cmd-top">
+          <div class="cmd-name"><code>/settings</code><span class="cmd-tag">Administrator or Manage Server</span></div>
+          <button class="copy-btn" data-cmd="/settings" type="button">Copy</button>
+        </div>
+        <p class="cmd-desc">Sets the uwuify intensity level and the server's default duration, used whenever a duration isn't given to /uwuify.</p>
       </div>
 
       <div class="cmd-card">
@@ -246,7 +246,7 @@
           <div class="cmd-name"><code>/help</code><span class="cmd-tag cmd-tag-all">All members</span></div>
           <button class="copy-btn" data-cmd="/help" type="button">Copy</button>
         </div>
-        <p class="cmd-desc">Displays a quick-reference list of commands directly in Discord.</p>
+        <p class="cmd-desc">Shows a quick list of commands in Discord.</p>
       </div>
     </div>
 
@@ -262,7 +262,7 @@
         </div>
       </div>
       <div class="perms-row">
-        <span class="perms-label">Who Can run commands</span>
+        <span class="perms-label">Can run /uwuify</span>
         <div class="chip-group">
           <span class="chip">Administrator</span>
           <span class="chip">Ban Members</span>
@@ -270,30 +270,38 @@
           <span class="chip">Timeout Members</span>
         </div>
       </div>
+      <div class="perms-row">
+        <span class="perms-label">Can run /settings</span>
+        <div class="chip-group">
+          <span class="chip">Administrator</span>
+          <span class="chip">Manage Server</span>
+        </div>
+      </div>
+      <div class="perms-row">
+        <span class="perms-label">Can run /webhook</span>
+        <div class="chip-group">
+          <span class="chip">Administrator</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CHANGELOG -->
-<section id="updates" class="section reveal">
+<!-- SETTINGS -->
+<section id="settings" class="section reveal">
   <div class="section-header">
-    <span class="eyebrow">Changelog</span>
-    <h2>Update log</h2>
+    <span class="eyebrow">Settings</span>
+    <h2>Control how uwuify behaves</h2>
+    <p>Run <code>/settings</code> to change these for your server. Administrator or Manage Server permission required.</p>
   </div>
-  <div class="changelog">
-    <div class="changelog-entry">
-      <div class="changelog-meta">
-        <span class="changelog-date">22 May 2026</span>
-        <span class="changelog-badge">Fix</span>
-      </div>
-      <p>Improved webhook stability and rate limit handling.</p>
+  <div class="settings-grid">
+    <div class="settings-card">
+      <h3>Intensity level</h3>
+      <p>Controls how heavily messages get uwuified, from a light pass to full uwu speak.</p>
     </div>
-    <div class="changelog-entry">
-      <div class="changelog-meta">
-        <span class="changelog-date">21 May 2026</span>
-        <span class="changelog-badge">Improvement</span>
-      </div>
-      <p>Optimised message queue system for faster processing.</p>
+    <div class="settings-card">
+      <h3>Default duration</h3>
+      <p>Used whenever <code>/uwuify</code> is run without a duration, so you don't have to set one every time.</p>
     </div>
   </div>
 </section>
@@ -420,7 +428,6 @@
   </div>
 </footer>
 
-<!-- TOAST -->
 <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
 
 <script src="script.js"></script>
