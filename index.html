@@ -1,300 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-
-  <title>uwuify — Discord Message Transformation Bot</title>
-  <meta name="description" content="uwuify is a Discord bot that transforms a chosen member's messages into uwu speak, live. No setup, no AI, no message storage." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://uwuify.uk/" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="uwuify" />
-  <meta property="og:title" content="uwuify — Discord Message Transformation Bot" />
-  <meta property="og:description" content="Transform a chosen member's Discord messages into uwu speak, live. No setup, no AI, no message storage." />
-  <meta property="og:url" content="https://uwuify.uk/" />
-  <meta property="og:image" content="https://uwuify.uk/assets/logo2.png" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="uwuify — Discord Message Transformation Bot" />
-  <meta name="twitter:description" content="Transform a chosen member's Discord messages into uwu speak, live. No setup, no AI, no message storage." />
-  <meta name="twitter:image" content="https://uwuify.uk/assets/logo2.png" />
-
-  <link rel="icon" type="image/svg+xml" href="assets/logo.png" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>uwuify — Discord bot</title>
+  <meta name="description" content="A Discord bot that turns a member’s messages into uwu speak. Setup, commands, limits, permissions, and privacy explained here.">
+  <link rel="canonical" href="https://uwuify.uk/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="uwuify — Discord bot">
+  <meta property="og:description" content="Turn a member’s messages into uwu speak. Add the bot and get started.">
+  <meta property="og:url" content="https://uwuify.uk/">
+  <meta name="theme-color" content="#fafaf8">
+  <link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="top-banner" id="top-banner">
-    <span class="banner-dot"></span>
-    <span>uwuify is up</span>
-    <button id="banner-close" aria-label="Dismiss">×</button>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page">
+    <header>
+      <a class="brand" href="#" aria-label="uwuify home">uwuify</a>
+      <nav aria-label="Main navigation"><a href="#commands">Commands</a><a href="#privacy">Privacy</a><a href="https://discord.gg/HZthcDvdMz" target="_blank" rel="noopener noreferrer">Support</a></nav>
+    </header>
+    <main id="main">
+      <section class="getting-started" id="how-it-works" aria-labelledby="setup-title">
+        <h1 id="setup-title">Getting started</h1>
+        <ol class="steps">
+          <li><a class="button" href="https://discord.com/oauth2/authorize?client_id=1429492700440166573" target="_blank" rel="noopener noreferrer">Add uwuify to your Discord server</a></li>
+          <li>Run <code>/uwuify</code> as an administrator or with a whitelisted role.</li>
+          <li>That’s it!</li>
+        </ol>
+        <p class="channel-note">uwuify only transforms messages in <strong>one channel at a time</strong>. To change the current channel, use <code>/webhook</code>.</p>
+      </section>
+      <section class="section" id="commands" aria-labelledby="commands-title">
+        <h2 id="commands-title">Commands</h2>
+        <div class="command-list">
+          <article class="command"><div><code>/uwuify</code><span class="access">Admin or whitelisted role</span></div><p>Turns a member’s messages into uwu speak.</p></article>
+          <article class="command"><div><code>/webhook</code><span class="access">Admin</span></div><p>Changes the channel where messages are transformed.</p></article>
+          <article class="command"><div><code>/intensity</code><span class="access">Admin</span></div><p>Changes the strength of the transformation.</p></article>
+          <article class="command"><div><code>/hidecommand</code><span class="access">Admin</span></div><p>Hides the command from other members.</p></article>
+          <article class="command"><div><code>/whitelist view</code><span class="access">Admin</span></div><p>Shows the roles allowed to use /uwuify.</p></article>
+          <article class="command"><div><code>/whitelist add</code><span class="access">Admin</span></div><p>Allows a role to use /uwuify.</p></article>
+          <article class="command"><div><code>/whitelist remove</code><span class="access">Admin</span></div><p>Removes a role’s access to /uwuify.</p></article>
+        </div>
+        <p class="fine-print">Type a command in Discord, then choose its options.</p>
+      </section>
+      <section class="section" id="limits" aria-labelledby="limits-title">
+        <h2 id="limits-title">Limits per server</h2>
+        <ul class="limits"><li><strong>1</strong> webhook</li><li><strong>5</strong> members uwuified at once</li><li><strong>3</strong> whitelisted roles</li></ul>
+      </section>
+      <section class="section split" id="permissions" aria-labelledby="permissions-title">
+        <div class="section-label"><h2 id="permissions-title">Permissions</h2></div>
+        <div class="permission-content"><p>The bot needs these permissions to read, replace, and repost messages in the active channel:</p><dl class="permission-list">
+          <div><dt>View Channels</dt><dd>Access the channel where uwuify runs.</dd></div>
+          <div><dt>Send Messages</dt><dd>Post transformed messages.</dd></div>
+          <div><dt>Read Message History</dt><dd>Access messages in the channel.</dd></div>
+          <div><dt>Manage Messages</dt><dd>Delete original messages so they can be replaced.</dd></div>
+          <div><dt>Manage Webhooks</dt><dd>Create and manage the webhook used to repost messages.</dd></div>
+        </dl><aside class="note"><strong>Create Instant Invite is optional.</strong><p>If enabled, the bot saves a server invite the developer can use to join for support. Turn it off when adding the bot, or remove it in Server Settings → Roles. The bot works without it.</p></aside><p class="fine-print">If a webhook is blocked or deleted, check the channel’s permissions or ask in the <a href="https://discord.gg/HZthcDvdMz" target="_blank" rel="noopener noreferrer">support server</a>.</p></div>
+      </section>
+      <section class="section split" id="privacy" aria-labelledby="privacy-title">
+        <div class="section-label"><h2 id="privacy-title">Privacy policy</h2><p class="fine-print">Policy updated October 2026</p></div>
+        <div class="privacy-content"><article><h3>What the bot stores</h3><p>Your server ID, its webhook ID, and a server invite link if you grant Create Instant Invite. Only the developer can access these, to operate and support the bot.</p></article><article><h3>What happens to messages</h3><p>Messages are transformed in memory and discarded after reposting. Message content isn’t logged or saved to a database. No AI is involved. Usernames and user IDs aren’t stored.</p></article><article><h3>Removing your data</h3><p>Remove uwuify from your server to delete its stored server ID, webhook ID, and invite link.</p></article><article><h3>Sharing and contact</h3><p>Stored data isn’t sold or shared with third parties. For questions about your data, <a href="https://discord.gg/HZthcDvdMz" target="_blank" rel="noopener noreferrer">join the support server</a> and open a thread.</p></article></div>
+      </section>
+
+    </main>
+    <footer><span>uwuify · made by @9pill</span><a href="#main">Back to top</a></footer>
   </div>
-
-  <nav class="navbar" id="navbar">
-    <a href="#" class="brand" aria-label="uwuify home">
-      <img src="assets/logo-placeholder.svg" alt="" class="brand-mark" width="30" height="30" />
-      <span>uwuify</span>
-    </a>
-
-    <div class="nav-links">
-      <a href="#how-it-works">How it works</a>
-      <a href="#commands">Commands</a>
-      <a href="#permissions">Permissions</a>
-      <a href="#privacy">Privacy</a>
-    </div>
-
-    <div class="nav-actions">
-      <a href="https://discord.gg/CjPDjCGyeM" class="nav-secondary" target="_blank" rel="noopener">Support</a>
-      <a href="https://discord.com/oauth2/authorize?client_id=1429492700440166573" class="nav-primary" target="_blank" rel="noopener">Invite uwuify</a>
-    </div>
-
-    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
-    <a href="#how-it-works">How it works</a>
-    <a href="#commands">Commands</a>
-    <a href="#permissions">Permissions</a>
-    <a href="#privacy">Privacy Policy</a>
-    <a href="https://discord.gg/HZthcDvdMz" target="_blank" rel="noopener">Support Server</a>
-    <a href="https://discord.com/oauth2/authorize?client_id=1429492700440166573" class="mobile-primary" target="_blank" rel="noopener">Invite uwuify</a>
-  </div>
-
-  <main>
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <div class="status"><span></span> No setup needed</div>
-        <h1>Make anyone talk in <em>uwu</em>.</h1>
-        <p>
-          Add uwuify to your Discord server, run <code>/uwuify</code> on a member,
-          and their messages start getting transformed right away.
-        </p>
-
-        <div class="hero-actions">
-          <a href="https://discord.com/oauth2/authorize?client_id=1429492700440166573" class="button button-primary" target="_blank" rel="noopener">Invite uwuify</a>
-          <a href="https://discord.gg/HZthcDvdMz" class="button button-secondary" target="_blank" rel="noopener">Join support server</a>
-        </div>
-
-        <div class="hero-note">
-          <span>Make</span>
-          <span>Discord</span>
-          <span>Fun Again</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="how-it-works" class="section">
-      <div class="section-heading">
-        <span class="eyebrow">How it works</span>
-        <h2>Add it. Run one command. Done.</h2>
-        <p>No setup screen, no config file, nothing to configure first.</p>
-      </div>
-
-      <div class="steps">
-        <article class="step">
-          <div class="step-number">01</div>
-          <h3>Add uwuify to your server</h3>
-          <p>Invite the bot and accept the permissions it asks for.</p>
-        </article>
-
-        <article class="step">
-          <div class="step-number">02</div>
-          <h3>Run /uwuify on someone</h3>
-          <p>Pick a member. Their messages start getting transformed right away.</p>
-        </article>
-
-        <article class="step">
-          <div class="step-number">03</div>
-          <h3>Move it anytime</h3>
-          <p>Want it in a different channel? Run <code>/webhook</code> to move it there.</p>
-        </article>
-      </div>
-
-      <div class="notice">
-        <strong>Webhook getting blocked or deleted?</strong>
-        <span>Give uwuify Administrator, or kick it and add it back to your server.</span>
-      </div>
-    </section>
-
-    <section id="commands" class="section section-soft">
-      <div class="section-heading">
-        <span class="eyebrow">Commands</span>
-        <h2>Every command uwuify has</h2>
-        <p>Simple permissions. <code>/uwuify</code> is the only command that can be used by a whitelisted role.</p>
-      </div>
-
-      <div class="commands">
-        <article class="command-card">
-          <div class="command-top">
-            <div>
-              <code>/uwuify &lt;user&gt;</code>
-              <span class="tag">Admin or whitelisted role</span>
-            </div>
-            <button class="copy-btn" data-cmd="/uwuify @user" type="button">Copy</button>
-          </div>
-          <p>It's the bot. You should know what it does.</p>
-          <small>e.g. <code>/uwuify @CoolEthan133</code></small>
-        </article>
-
-        <article class="command-card">
-          <div class="command-top">
-            <div>
-              <code>/webhook &lt;#channel&gt;</code>
-              <span class="tag">Administrator</span>
-            </div>
-            <button class="copy-btn" data-cmd="/webhook #channel" type="button">Copy</button>
-          </div>
-          <p>Moves the transformation channel. Only one channel per server can be active at a time.</p>
-          <small>e.g. <code>/webhook #general</code></small>
-        </article>
-
-        <article class="command-card">
-          <div class="command-top">
-            <div>
-              <code>/intensity</code>
-              <span class="tag">Administrator</span>
-            </div>
-            <button class="copy-btn" data-cmd="/intensity" type="button">Copy</button>
-          </div>
-          <p>Sets how strong the uwu transformation is.</p>
-        </article>
-
-        <article class="command-card">
-          <div class="command-top">
-            <div>
-              <code>/hidecommand</code>
-              <span class="tag">Administrator</span>
-            </div>
-            <button class="copy-btn" data-cmd="/hidecommand" type="button">Copy</button>
-          </div>
-          <p>Hides the command so people don't know you ran it.</p>
-        </article>
-
-        <article class="command-card">
-          <div class="command-top">
-            <div>
-              <code>/whitelist &lt;role&gt;</code>
-              <span class="tag">Administrator</span>
-            </div>
-            <button class="copy-btn" data-cmd="/whitelist @role" type="button">Copy</button>
-          </div>
-          <p>Lets a chosen role use <code>/uwuify</code>. Every other command stays Administrator only.</p>
-          <small>e.g. <code>/whitelist @Mods</code></small>
-        </article>
-
-        <article class="command-card">
-          <div class="command-top">
-            <div>
-              <code>/help</code>
-              <span class="tag tag-neutral">All members</span>
-            </div>
-            <button class="copy-btn" data-cmd="/help" type="button">Copy</button>
-          </div>
-          <p>Shows command info, i guess.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="permissions" class="section">
-      <div class="section-heading">
-        <span class="eyebrow">Permissions</span>
-        <h2>What uwuify needs to work</h2>
-      </div>
-
-      <div class="permissions">
-        <div class="permission-row">
-          <div class="permission-title">Bot needs</div>
-          <div class="chips">
-            <span>View Channels</span>
-            <span>Send Messages</span>
-            <span>Read Message History</span>
-            <span>Manage Messages</span>
-            <span>Manage Webhooks</span>
-          </div>
-        </div>
-
-        <div class="permission-row">
-          <div class="permission-title">Optional</div>
-          <div class="chips">
-            <span>Create Instant Invite</span>
-          </div>
-        </div>
-
-        <div class="permission-row">
-          <div class="permission-title">Can run /uwuify</div>
-          <div class="chips accent">
-            <span>Administrator</span>
-            <span>Whitelisted role</span>
-          </div>
-        </div>
-
-        <div class="permission-row">
-          <div class="permission-title">Other commands</div>
-          <div class="chips accent">
-            <span>Administrator only</span>
-          </div>
-        </div>
-      </div>
-
-      <p class="permission-note">Create Instant Invite is optional — see the Privacy Policy below for what it is used for.</p>
-    </section>
-
-    <section id="privacy" class="section section-soft">
-      <div class="section-heading">
-        <span class="eyebrow">Privacy</span>
-        <h2>Privacy Policy</h2>
-        <p>Last updated: August 2026</p>
-      </div>
-
-      <div class="privacy-card">
-        <article>
-          <h3>1. What we collect</h3>
-          <p>When your server invites uwuify, we store three things: your server's ID, the webhook ID created by the <code>/webhook</code> command, and — only if the "Create Instant Invite" permission is granted at invite time — a standing invite link to your server. All three are visible only to the bot's developer and are used solely to run and support the bot.</p>
-        </article>
-
-        <article>
-          <h3>2. What we never collect</h3>
-          <p>uwuify uses zero AI. Message content is never read by a language model, never logged, and never written to a database — it's transformed in memory and discarded the instant it's reposted. We also never store usernames, user IDs, or any other personal data.</p>
-        </article>
-
-        <article>
-          <h3>3. Why we keep an invite link</h3>
-          <p>A saved invite link lets the developer join your server directly if support is ever needed, e.g. to fix a broken webhook. If you ever see the developer show up in your server, that's what's happening — they've used the invite your server generated.</p>
-        </article>
-
-        <article>
-          <h3>4. Keeping your server private</h3>
-          <p>If you'd rather not generate a standing invite, untick <strong>Create Instant Invite</strong> when adding uwuify (or remove it afterwards in Server Settings → Roles). uwuify works exactly the same either way — this permission only affects the developer's ability to rejoin later.</p>
-        </article>
-
-        <article>
-          <h3>5. Removing your data</h3>
-          <p>Kick uwuify from your server at any time to delete its stored server ID, webhook ID, and invite link.</p>
-        </article>
-
-        <article>
-          <h3>6. Third parties</h3>
-          <p>uwuify doesn't sell or share data with anyone. What's stored is used exclusively to operate the bot.</p>
-        </article>
-
-        <article>
-          <h3>7. Contact</h3>
-          <p>Questions? <a href="https://discord.gg/HZthcDvdMz" target="_blank" rel="noopener">Join our support server</a> and open a thread, or message the developer directly on Discord.</p>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    Uwuify is developed by @9pill on Discord
-  </footer>
-
-  <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
-
-  <script src="script.js"></script>
 </body>
 </html>
